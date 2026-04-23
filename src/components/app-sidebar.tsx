@@ -21,13 +21,14 @@ import {
   MapPin,
   AlertTriangle,
   Archive,
-  Star,
   Headphones,
   Megaphone,
   Settings,
   Users,
   PlayCircle,
 } from 'lucide-react'
+import bcLogoBranco from '@/assets/bc-logo-branco-b40b3.png'
+import bcIcon from '@/assets/8e6af6dc-57b9-4132-b991-9f491121534e-91150.png'
 
 const navItems = [
   { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboard },
@@ -52,22 +53,24 @@ export function AppSidebar() {
   const isCollapsed = state === 'collapsed'
 
   return (
-    <Sidebar collapsible="icon" className="border-r-0 shadow-lg">
+    <Sidebar
+      collapsible="icon"
+      className="border-r-0 shadow-lg dark:border-r dark:border-sidebar-border"
+    >
       <SidebarHeader className="h-16 flex items-center justify-center border-b border-sidebar-border px-4 overflow-hidden">
         {!isCollapsed ? (
-          <div className="flex items-center gap-2 font-bold text-lg tracking-tight text-white animate-fade-in whitespace-nowrap">
+          <div className="flex items-center justify-center w-full animate-fade-in">
             <img
-              src="https://img.usecurling.com/i?q=book&color=white&shape=fill"
+              src={bcLogoBranco}
               alt="Brasil Cultural"
-              className="w-8 h-8 object-contain shrink-0"
+              className="h-8 w-full object-contain shrink-0 drop-shadow-sm"
             />
-            <span>Painel Logístico</span>
           </div>
         ) : (
           <img
-            src="https://img.usecurling.com/i?q=book&color=white&shape=fill"
+            src={bcIcon}
             alt="Brasil Cultural"
-            className="w-8 h-8 object-contain shrink-0"
+            className="w-8 h-8 rounded-lg object-cover object-top shrink-0 shadow-sm border border-white/20"
           />
         )}
       </SidebarHeader>

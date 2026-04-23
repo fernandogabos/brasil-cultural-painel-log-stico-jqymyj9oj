@@ -3,6 +3,7 @@ import { useSidebar } from '@/components/ui/sidebar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export function AppHeader() {
   const { toggleSidebar } = useSidebar()
@@ -28,7 +29,8 @@ export function AppHeader() {
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 md:gap-4">
+        <ThemeToggle />
         <Button
           variant="ghost"
           size="icon"

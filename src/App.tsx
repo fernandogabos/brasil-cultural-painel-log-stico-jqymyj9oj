@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { ThemeProvider } from '@/components/theme-provider'
 
 import Layout from './components/Layout'
 import LandingPage from './pages/LandingPage'
@@ -48,64 +49,66 @@ import PortalTicketDetails from './pages/portal/tickets/PortalTicketDetails'
 import PortalMural from './pages/portal/mural/PortalMural'
 
 const App = () => (
-  <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Index />} />
-          <Route path="/contratos" element={<ContractsPage />} />
-          <Route path="/contratos/novo" element={<NewContractPage />} />
-          <Route path="/empenhos" element={<EmpenhosPage />} />
-          <Route path="/empenhos/novo" element={<NewEmpenhoPage />} />
-          <Route path="/pedidos" element={<PedidosPage />} />
-          <Route path="/pedidos/novo" element={<NewPedidoPage />} />
-          <Route path="/pedidos/:id" element={<PedidoDetailsPage />} />
-          <Route path="/separacao" element={<SeparacaoPage />} />
-          <Route path="/separacao/os/:id" element={<OsDetailsPage />} />
-          <Route path="/estoque" element={<EstoquePage />} />
-          <Route path="/mural" element={<MuralAvisosPage />} />
-          <Route path="/atendimento/admin" element={<AdminTicketsPage />} />
-          <Route path="/atendimento/admin/dashboard" element={<AdminDashboardPage />} />
-          <Route path="/atendimento/admin/faq" element={<AdminFaqPage />} />
-          <Route path="/atendimento/admin/:id" element={<AdminTicketDetailsPage />} />
-          <Route path="/expedicao" element={<ExpedicaoPage />} />
-          <Route path="/expedicao/:id" element={<RomaneioDetailsPage />} />
-          <Route path="/expedicao/:id/route" element={<RouteTrackingPage />} />
-          <Route path="/divergencias" element={<DivergenciasPage />} />
-          <Route path="/divergencias/:id" element={<DivergenciaDetailsPage />} />
-          <Route path="/settings" element={<SettingsPage />} />
-          <Route path="/users" element={<UsersPage />} />
-          <Route path="/demo" element={<DemoFlowPage />} />
-          {/* Outros módulos seriam adicionados aqui */}
-        </Route>
+  <ThemeProvider defaultTheme="system" storageKey="brasil-cultural-theme">
+    <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={<Index />} />
+            <Route path="/contratos" element={<ContractsPage />} />
+            <Route path="/contratos/novo" element={<NewContractPage />} />
+            <Route path="/empenhos" element={<EmpenhosPage />} />
+            <Route path="/empenhos/novo" element={<NewEmpenhoPage />} />
+            <Route path="/pedidos" element={<PedidosPage />} />
+            <Route path="/pedidos/novo" element={<NewPedidoPage />} />
+            <Route path="/pedidos/:id" element={<PedidoDetailsPage />} />
+            <Route path="/separacao" element={<SeparacaoPage />} />
+            <Route path="/separacao/os/:id" element={<OsDetailsPage />} />
+            <Route path="/estoque" element={<EstoquePage />} />
+            <Route path="/mural" element={<MuralAvisosPage />} />
+            <Route path="/atendimento/admin" element={<AdminTicketsPage />} />
+            <Route path="/atendimento/admin/dashboard" element={<AdminDashboardPage />} />
+            <Route path="/atendimento/admin/faq" element={<AdminFaqPage />} />
+            <Route path="/atendimento/admin/:id" element={<AdminTicketDetailsPage />} />
+            <Route path="/expedicao" element={<ExpedicaoPage />} />
+            <Route path="/expedicao/:id" element={<RomaneioDetailsPage />} />
+            <Route path="/expedicao/:id/route" element={<RouteTrackingPage />} />
+            <Route path="/divergencias" element={<DivergenciasPage />} />
+            <Route path="/divergencias/:id" element={<DivergenciaDetailsPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/demo" element={<DemoFlowPage />} />
+            {/* Outros módulos seriam adicionados aqui */}
+          </Route>
 
-        {/* Portal do Cliente */}
-        <Route path="/portal/login" element={<PortalLogin />} />
-        <Route path="/portal" element={<PortalLayout />}>
-          <Route index element={<PortalDashboard />} />
-          <Route path="dashboard" element={<PortalDashboard />} />
-          <Route path="indicadores" element={<PortalIndicators />} />
-          <Route path="contratos" element={<PortalContracts />} />
-          <Route path="contratos/:id" element={<PortalContractDetails />} />
-          <Route path="pedidos" element={<PortalOrders />} />
-          <Route path="pedidos/novo" element={<PortalNewOrder />} />
-          <Route path="chamados" element={<PortalTickets />} />
-          <Route path="chamados/:id" element={<PortalTicketDetails />} />
-          <Route path="mural" element={<PortalMural />} />
-        </Route>
+          {/* Portal do Cliente */}
+          <Route path="/portal/login" element={<PortalLogin />} />
+          <Route path="/portal" element={<PortalLayout />}>
+            <Route index element={<PortalDashboard />} />
+            <Route path="dashboard" element={<PortalDashboard />} />
+            <Route path="indicadores" element={<PortalIndicators />} />
+            <Route path="contratos" element={<PortalContracts />} />
+            <Route path="contratos/:id" element={<PortalContractDetails />} />
+            <Route path="pedidos" element={<PortalOrders />} />
+            <Route path="pedidos/novo" element={<PortalNewOrder />} />
+            <Route path="chamados" element={<PortalTickets />} />
+            <Route path="chamados/:id" element={<PortalTicketDetails />} />
+            <Route path="mural" element={<PortalMural />} />
+          </Route>
 
-        {/* Rota pública fora do Layout (sem sidebar) */}
-        <Route path="/tracker/:uuid" element={<TrackerPage />} />
-        <Route path="/atendimento" element={<PublicPortalPage />} />
-        <Route path="/atendimento/tracker/:id" element={<TicketTrackerPage />} />
+          {/* Rota pública fora do Layout (sem sidebar) */}
+          <Route path="/tracker/:uuid" element={<TrackerPage />} />
+          <Route path="/atendimento" element={<PublicPortalPage />} />
+          <Route path="/atendimento/tracker/:id" element={<TicketTrackerPage />} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </TooltipProvider>
-  </BrowserRouter>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TooltipProvider>
+    </BrowserRouter>
+  </ThemeProvider>
 )
 
 export default App

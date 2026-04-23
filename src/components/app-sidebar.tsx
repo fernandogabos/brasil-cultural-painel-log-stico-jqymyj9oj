@@ -22,7 +22,7 @@ import {
   AlertTriangle,
   Archive,
   Star,
-  MessageSquare,
+  Headphones,
 } from 'lucide-react'
 
 const navItems = [
@@ -35,8 +35,8 @@ const navItems = [
   { title: 'Tracker Público', url: '/tracker/demo-uuid', icon: MapPin },
   { title: 'Divergências', url: '#', icon: AlertTriangle },
   { title: 'Estoque', url: '#', icon: Archive },
+  { title: 'Atendimento', url: '/atendimento/admin', icon: Headphones },
   { title: 'Avaliações', url: '#', icon: Star },
-  { title: 'Comunicação', url: '#', icon: MessageSquare },
 ]
 
 export function AppSidebar() {

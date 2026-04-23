@@ -16,6 +16,12 @@ import PedidoDetailsPage from './pages/pedidos/PedidoDetailsPage'
 import SeparacaoPage from './pages/separacao/SeparacaoPage'
 import OsDetailsPage from './pages/separacao/OsDetailsPage'
 import TrackerPage from './pages/tracker/TrackerPage'
+import PublicPortalPage from './pages/atendimento/PublicPortalPage'
+import TicketTrackerPage from './pages/atendimento/TicketTrackerPage'
+import AdminTicketsPage from './pages/atendimento/AdminTicketsPage'
+import AdminTicketDetailsPage from './pages/atendimento/AdminTicketDetailsPage'
+import AdminDashboardPage from './pages/atendimento/AdminDashboardPage'
+import AdminFaqPage from './pages/atendimento/AdminFaqPage'
 
 const App = () => (
   <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
@@ -34,11 +40,17 @@ const App = () => (
           <Route path="/pedidos/:id" element={<PedidoDetailsPage />} />
           <Route path="/separacao" element={<SeparacaoPage />} />
           <Route path="/separacao/os/:id" element={<OsDetailsPage />} />
+          <Route path="/atendimento/admin" element={<AdminTicketsPage />} />
+          <Route path="/atendimento/admin/dashboard" element={<AdminDashboardPage />} />
+          <Route path="/atendimento/admin/faq" element={<AdminFaqPage />} />
+          <Route path="/atendimento/admin/:id" element={<AdminTicketDetailsPage />} />
           {/* Outros módulos seriam adicionados aqui */}
         </Route>
 
         {/* Rota pública fora do Layout (sem sidebar) */}
         <Route path="/tracker/:uuid" element={<TrackerPage />} />
+        <Route path="/atendimento" element={<PublicPortalPage />} />
+        <Route path="/atendimento/tracker/:id" element={<TicketTrackerPage />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

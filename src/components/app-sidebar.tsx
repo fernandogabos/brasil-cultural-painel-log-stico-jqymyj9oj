@@ -23,20 +23,22 @@ import {
   Archive,
   Star,
   Headphones,
+  Megaphone,
 } from 'lucide-react'
 
 const navItems = [
   { title: 'Dashboard', url: '/', icon: LayoutDashboard },
+  { title: 'Mural de Avisos', url: '/mural', icon: Megaphone },
   { title: 'Contratos', url: '/contratos', icon: FileText },
   { title: 'Empenhos', url: '/empenhos', icon: FileBadge2 },
   { title: 'Pedidos', url: '/pedidos', icon: Package },
   { title: 'Separação', url: '/separacao', icon: Box },
+  { title: 'Avaliações', url: '/avaliacoes', icon: Star },
   { title: 'Expedição', url: '/expedicao', icon: Truck },
+  { title: 'Estoque', url: '/estoque', icon: Archive },
   { title: 'Tracker Público', url: '/tracker/demo-uuid', icon: MapPin },
   { title: 'Divergências', url: '/divergencias', icon: AlertTriangle },
-  { title: 'Estoque', url: '#', icon: Archive },
   { title: 'Atendimento', url: '/atendimento/admin', icon: Headphones },
-  { title: 'Avaliações', url: '#', icon: Star },
 ]
 
 export function AppSidebar() {

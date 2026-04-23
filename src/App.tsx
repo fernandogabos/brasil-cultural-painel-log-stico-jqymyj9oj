@@ -14,6 +14,9 @@ import PedidosPage from './pages/pedidos/PedidosPage'
 import NewPedidoPage from './pages/pedidos/NewPedidoPage'
 import PedidoDetailsPage from './pages/pedidos/PedidoDetailsPage'
 import SeparacaoPage from './pages/separacao/SeparacaoPage'
+import EstoquePage from './pages/estoque/EstoquePage'
+import AvaliacoesPage from './pages/avaliacoes/AvaliacoesPage'
+import MuralAvisosPage from './pages/mural/MuralAvisosPage'
 import OsDetailsPage from './pages/separacao/OsDetailsPage'
 import TrackerPage from './pages/tracker/TrackerPage'
 import PublicPortalPage from './pages/atendimento/PublicPortalPage'
@@ -45,6 +48,9 @@ const App = () => (
           <Route path="/pedidos/:id" element={<PedidoDetailsPage />} />
           <Route path="/separacao" element={<SeparacaoPage />} />
           <Route path="/separacao/os/:id" element={<OsDetailsPage />} />
+          <Route path="/estoque" element={<EstoquePage />} />
+          <Route path="/avaliacoes" element={<AvaliacoesPage />} />
+          <Route path="/mural" element={<MuralAvisosPage />} />
           <Route path="/atendimento/admin" element={<AdminTicketsPage />} />
           <Route path="/atendimento/admin/dashboard" element={<AdminDashboardPage />} />
           <Route path="/atendimento/admin/faq" element={<AdminFaqPage />} />

@@ -249,3 +249,188 @@ export const MOCK_DIVERGENCIAS = [
     createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
   },
 ]
+
+export const MOCK_PRODUCTS = [
+  {
+    id: 'PRD-001',
+    code: 'LIV-MAT-1',
+    description: 'Livro Didático Matemática 1º Ano',
+    type: 'Livro Didático',
+    grade: '1º Ano',
+    boxQty: 50,
+    un: 'un',
+    weight: '0.4kg',
+    total: 1500,
+    reserved: 300,
+    free: 1200,
+    threshold: 500,
+  },
+  {
+    id: 'PRD-002',
+    code: 'AVAL-DIAG-1',
+    description: 'Caderno de Avaliação Diagnóstica 1º Ano',
+    type: 'Avaliação',
+    grade: '1º Ano',
+    boxQty: 100,
+    un: 'un',
+    weight: '0.1kg',
+    total: 800,
+    reserved: 450,
+    free: 350,
+    threshold: 400,
+  },
+  {
+    id: 'PRD-003',
+    code: 'PAR-LIT-INF',
+    description: 'Livro Paradidático Contos Infantis',
+    type: 'Paradidático',
+    grade: 'Educação Infantil',
+    boxQty: 40,
+    un: 'un',
+    weight: '0.3kg',
+    total: 400,
+    reserved: 20,
+    free: 380,
+    threshold: 100,
+  },
+]
+
+export const MOCK_STOCK_MOVEMENTS = [
+  {
+    id: 'MOV-001',
+    type: 'Entrada',
+    product: 'LIV-MAT-1',
+    qty: 2000,
+    user: 'João (Almoxarifado)',
+    doc: 'NF-12345',
+    date: '2023-10-01T10:00:00Z',
+  },
+  {
+    id: 'MOV-002',
+    type: 'Saída',
+    product: 'LIV-MAT-1',
+    qty: 500,
+    user: 'Vanessa (Logística)',
+    doc: 'PED-2023-0001',
+    date: '2023-10-10T14:30:00Z',
+  },
+]
+
+export const MOCK_INVENTORY_CYCLES = [
+  {
+    id: 'CYC-001',
+    name: 'Bimestral Abril/2026',
+    status: 'Concluído',
+    date: '2026-04-01',
+    discrepancies: 2,
+  },
+  {
+    id: 'CYC-002',
+    name: 'Mensal Maio/2026',
+    status: 'Em andamento',
+    date: '2026-05-01',
+    discrepancies: 0,
+  },
+]
+
+export const MOCK_MURAL = [
+  {
+    id: 1,
+    title: 'Atualização no Processo de Fracionamento',
+    content:
+      'A partir de amanhã, o checklist de plástico bolha é obrigatório para todas as avaliações.',
+    author: 'Diretoria',
+    date: '2026-04-20',
+    urgent: true,
+    readBy: ['Júlia', 'Carlos'],
+  },
+  {
+    id: 2,
+    title: 'Feriado Municipal - Expedição suspensa',
+    content:
+      'Não haverá expedição na próxima sexta-feira devido ao feriado local. Ajustem as rotas.',
+    author: 'RH',
+    date: '2026-04-18',
+    urgent: false,
+    readBy: ['Vanessa', 'João', 'Carlos', 'Júlia'],
+  },
+]
+
+export const MOCK_INTERNAL_CHAT = [
+  {
+    id: 1,
+    user: 'Júlia (Jurídico)',
+    message: 'O contrato já está validado para este pedido. Podem seguir.',
+    time: '10/10/2023 09:00',
+    type: 'text',
+  },
+  {
+    id: 2,
+    user: 'Vanessa (Logística)',
+    message: 'Iniciando separação. Precisaremos fracionar as avaliações do 1º Ano.',
+    time: '10/10/2023 14:00',
+    type: 'text',
+  },
+]
+
+export const MOCK_MUNICIPALITY_MESSAGES = [
+  {
+    id: 1,
+    user: 'Equipe Logística',
+    message:
+      'Prezado município, as caixas estão prontas para embarque. Previsão de entrega mantida para dia 20/10.',
+    time: '11/10/2023 10:00',
+    sender: 'internal',
+  },
+  {
+    id: 2,
+    user: 'Maria Silva (Diretora)',
+    message: 'Perfeito, aguardamos o envio. Haverá entrega fracionada diretamente na escola X?',
+    time: '11/10/2023 11:30',
+    sender: 'municipality',
+  },
+]
+
+export const MOCK_EXAM_LOTS = [
+  {
+    id: 'LOT-1001',
+    type: 'Avaliação Diagnóstica',
+    grade: '1º Ano',
+    period: '1º Bimestre',
+    packages: 50,
+    unitsPerPack: 100,
+    totalUnits: 5000,
+    date: '2026-04-05',
+  },
+  {
+    id: 'LOT-1002',
+    type: 'Simulado Estadual',
+    grade: '3º Ano (EM)',
+    period: '1º Semestre',
+    packages: 20,
+    unitsPerPack: 200,
+    totalUnits: 4000,
+    date: '2026-04-10',
+  },
+]
+
+export const MOCK_FRACTIONATION = [
+  {
+    id: 'FRAC-001',
+    orderId: 'PED-2023-0001',
+    school: 'EMEB Monteiro Lobato',
+    exam: 'Avaliação Diagnóstica 1º Ano',
+    demand: 45,
+    packsToOpen: 1,
+    status: 'Pendente',
+  },
+  {
+    id: 'FRAC-002',
+    orderId: 'PED-2023-0001',
+    school: 'EE Tarsila do Amaral',
+    exam: 'Avaliação Diagnóstica 1º Ano',
+    demand: 120,
+    packsToOpen: 2,
+    status: 'Concluído',
+  },
+]

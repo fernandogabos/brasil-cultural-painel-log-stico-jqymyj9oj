@@ -133,3 +133,65 @@ export const MOCK_PORTAL_MURAL = [
     priority: 'Urgent',
   },
 ]
+
+export const MOCK_PORTAL_INDICATORS = {
+  financial: {
+    totalValue: 120000,
+    executedValue: 85000,
+    balance: 35000,
+    averageMonthlyUsage: 15000,
+    estimatedMonthsLeft: 2.3,
+    contractExpiration: '2023-12-31',
+    depletionWarning: true,
+  },
+  items: [
+    { name: 'Livro Mat 1º Ano', contracted: 1000, requested: 850, color: 'bg-brand-medium' },
+    { name: 'Caderno Avaliação', contracted: 1000, requested: 900, color: 'bg-brand-orange' },
+    { name: 'Kit Ciências', contracted: 500, requested: 200, color: 'bg-emerald-500' },
+  ],
+  logistics: {
+    unitsReceived: 12500,
+    schoolsServed: 15,
+    totalSchools: 20,
+    timeline: [
+      { id: 1, date: '10/08/2023', status: 'completed', description: 'Entrega Lote 1' },
+      { id: 2, date: '05/09/2023', status: 'completed', description: 'Entrega Lote 2' },
+      {
+        id: 3,
+        date: '20/10/2023',
+        status: 'in-progress',
+        description: 'Entrega Lote 3 (Previsto)',
+      },
+    ],
+    mapPins: [
+      { id: 1, x: 25, y: 35, status: 'completed', name: 'EMEB Monteiro Lobato' },
+      { id: 2, x: 60, y: 55, status: 'in-progress', name: 'EE Tarsila do Amaral' },
+      { id: 3, x: 45, y: 25, status: 'completed', name: 'CMEI Ayrton Senna' },
+      { id: 4, x: 75, y: 70, status: 'pending', name: 'Creche Raio de Sol' },
+    ],
+  },
+  orders: {
+    solicitacoes: {
+      approved: 124,
+      inAnalysis: 18,
+      rejected: 5,
+    },
+    activeOrders: [
+      { id: 'PED-2023-0042', stage: 'Em Separação', eta: '18/10/2023' },
+      { id: 'PED-2023-0043', stage: 'Em Transporte', eta: '16/10/2023' },
+    ],
+  },
+  support: {
+    tickets: { opened: 45, resolved: 42, pending: 3 },
+    avgResponseTimeDays: 1.2,
+    avgCsat: 4.8,
+    csatHistory: [
+      { month: 'Mai', score: 4.2 },
+      { month: 'Jun', score: 4.5 },
+      { month: 'Jul', score: 4.6 },
+      { month: 'Ago', score: 4.4 },
+      { month: 'Set', score: 4.9 },
+      { month: 'Out', score: 4.8 },
+    ],
+  },
+}

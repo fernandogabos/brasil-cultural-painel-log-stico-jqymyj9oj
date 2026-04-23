@@ -38,6 +38,7 @@ import DemoFlowPage from './pages/demo/DemoFlowPage'
 import { PortalLayout } from './components/portal/PortalLayout'
 import PortalLogin from './pages/portal/PortalLogin'
 import PortalDashboard from './pages/portal/PortalDashboard'
+import PortalIndicators from './pages/portal/indicators/PortalIndicators'
 import PortalContracts from './pages/portal/contracts/PortalContracts'
 import PortalContractDetails from './pages/portal/contracts/PortalContractDetails'
 import PortalOrders from './pages/portal/orders/PortalOrders'
@@ -86,6 +87,7 @@ const App = () => (
         <Route path="/portal" element={<PortalLayout />}>
           <Route index element={<PortalDashboard />} />
           <Route path="dashboard" element={<PortalDashboard />} />
+          <Route path="indicadores" element={<PortalIndicators />} />
           <Route path="contratos" element={<PortalContracts />} />
           <Route path="contratos/:id" element={<PortalContractDetails />} />
           <Route path="pedidos" element={<PortalOrders />} />

@@ -16,6 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   LayoutDashboard,
   FileText,
+  BarChart3,
   Package,
   Headphones,
   Megaphone,
@@ -28,6 +29,7 @@ import { MOCK_PORTAL_USER } from '@/lib/mock-portal'
 
 const navItems = [
   { title: 'Home', url: '/portal/dashboard', icon: LayoutDashboard },
+  { title: 'Indicadores', url: '/portal/indicadores', icon: BarChart3 },
   { title: 'Meus Contratos', url: '/portal/contratos', icon: FileText },
   { title: 'Meus Pedidos', url: '/portal/pedidos', icon: Package },
   { title: 'Suporte & Chamados', url: '/portal/chamados', icon: Headphones },

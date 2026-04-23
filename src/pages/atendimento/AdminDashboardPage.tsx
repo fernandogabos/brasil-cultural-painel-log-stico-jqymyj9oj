@@ -23,9 +23,9 @@ export default function AdminDashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
-        <Card className="bg-white shadow-sm border-blue-100">
+        <Card className="bg-white shadow-sm border-slate-200">
           <CardContent className="p-6 flex items-center gap-4">
-            <div className="p-3 bg-blue-100 text-blue-600 rounded-full">
+            <div className="p-3 bg-accent/10 text-accent rounded-full">
               <TicketIcon className="w-6 h-6" />
             </div>
             <div>
@@ -34,9 +34,9 @@ export default function AdminDashboardPage() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-white shadow-sm border-amber-100">
+        <Card className="bg-white shadow-sm border-slate-200">
           <CardContent className="p-6 flex items-center gap-4">
-            <div className="p-3 bg-amber-100 text-amber-600 rounded-full">
+            <div className="p-3 bg-primary/10 text-primary rounded-full">
               <Clock className="w-6 h-6" />
             </div>
             <div>
@@ -45,9 +45,9 @@ export default function AdminDashboardPage() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-white shadow-sm border-green-100">
+        <Card className="bg-white shadow-sm border-slate-200">
           <CardContent className="p-6 flex items-center gap-4">
-            <div className="p-3 bg-green-100 text-green-600 rounded-full">
+            <div className="p-3 bg-emerald-100 text-emerald-600 rounded-full">
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <div>
@@ -108,9 +108,16 @@ export default function AdminDashboardPage() {
                   paddingAngle={2}
                   label
                 >
-                  {DASHBOARD_STATS.subjectDistribution.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.fill} />
-                  ))}
+                  {DASHBOARD_STATS.subjectDistribution.map((entry, index) => {
+                    const colors = [
+                      'hsl(var(--primary))',
+                      'hsl(var(--accent))',
+                      '#64748b',
+                      '#0ea5e9',
+                      '#10b981',
+                    ]
+                    return <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                  })}
                 </Pie>
                 <ChartTooltip content={<ChartTooltipContent />} />
               </PieChart>

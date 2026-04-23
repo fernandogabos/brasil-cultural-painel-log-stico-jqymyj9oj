@@ -22,14 +22,14 @@ export default function TrackerPage() {
   const { toast } = useToast()
   const [tracking, setTracking] = useState(false)
 
-  // Specific requested colors
-  const brandPrimary = 'bg-[#1A2E5A]'
-  const textPrimary = 'text-[#1A2E5A]'
-  const borderPrimary = 'border-[#1A2E5A]'
+  // Brand colors mapped to theme variables
+  const brandPrimary = 'bg-primary'
+  const textPrimary = 'text-primary'
+  const borderPrimary = 'border-primary'
 
-  const brandOrange = 'bg-[#F47920]'
-  const textOrange = 'text-[#F47920]'
-  const borderOrange = 'border-[#F47920]'
+  const brandOrange = 'bg-accent'
+  const textOrange = 'text-accent'
+  const borderOrange = 'border-accent'
 
   const steps = [
     { title: 'Contrato', icon: FileText, done: true, current: false },

@@ -57,7 +57,7 @@ export default function TicketTrackerPage() {
             {MOCK_MESSAGES.filter((m) => !m.isInternal).map((msg) => (
               <div
                 key={msg.id}
-                className={`p-5 rounded-xl border ${msg.role === 'customer' ? 'bg-blue-50/50 border-blue-100 ml-8 md:ml-16' : 'bg-white border-slate-200 mr-8 md:mr-16'}`}
+                className={`p-5 rounded-xl border ${msg.role === 'customer' ? 'bg-primary/5 border-primary/10 ml-8 md:ml-16' : 'bg-white border-slate-200 mr-8 md:mr-16'}`}
               >
                 <div className="flex justify-between text-xs text-muted-foreground mb-3 border-b pb-2">
                   <span className="font-semibold text-slate-700">
@@ -82,9 +82,9 @@ export default function TicketTrackerPage() {
             </Button>
           </div>
         ) : (
-          <Card className="shadow-sm border-blue-200 overflow-hidden">
-            <div className="bg-blue-50/50 p-4 border-b">
-              <h3 className="font-semibold text-blue-900">Adicionar Resposta</h3>
+          <Card className="shadow-sm border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 p-4 border-b">
+              <h3 className="font-semibold text-slate-800">Adicionar Resposta</h3>
             </div>
             <CardContent className="p-4 space-y-4">
               <Textarea
@@ -95,7 +95,7 @@ export default function TicketTrackerPage() {
                 className="resize-none focus-visible:ring-blue-500"
               />
               <div className="flex justify-end">
-                <Button onClick={handleReply} className="bg-blue-600 hover:bg-blue-700">
+                <Button onClick={handleReply}>
                   <Send className="w-4 h-4 mr-2" /> Enviar Resposta
                 </Button>
               </div>

@@ -18,17 +18,17 @@ export default function UsersPage() {
     <div className="flex flex-col gap-6 animate-fade-in-up">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-brand-primary tracking-tight">
-            Gestão de Acessos
+          <h1 className="text-3xl font-title font-bold text-brand-primary tracking-tight">
+            Gestão de Acessos & Auditoria
           </h1>
           <p className="text-muted-foreground mt-1">
-            Controle de usuários internos, associações e auditoria.
+            Controle de usuários internos, associações a municípios e logs do sistema.
           </p>
         </div>
       </div>
 
       <Tabs defaultValue="users" className="w-full">
-        <TabsList className="mb-6 bg-slate-100 p-1">
+        <TabsList className="mb-6 bg-slate-100 p-1 rounded-xl">
           <TabsTrigger
             value="users"
             className="data-[state=active]:bg-white data-[state=active]:text-brand-primary font-semibold"
@@ -44,10 +44,10 @@ export default function UsersPage() {
         </TabsList>
 
         <TabsContent value="users">
-          <Card className="border-t-4 border-t-brand-primary">
+          <Card className="border-t-4 border-t-brand-primary shadow-soft">
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
-                <CardTitle>Usuários Cadastrados</CardTitle>
+                <CardTitle className="font-title">Usuários Cadastrados</CardTitle>
                 <CardDescription>
                   Gerencie quem tem acesso ao painel administrativo.
                 </CardDescription>
@@ -171,17 +171,19 @@ export default function UsersPage() {
         </TabsContent>
 
         <TabsContent value="audit">
-          <Card>
+          <Card className="shadow-soft">
             <CardHeader className="flex flex-row items-center justify-between border-b pb-4 mb-4">
               <div>
-                <CardTitle>Histórico de Ações (Logs)</CardTitle>
+                <CardTitle className="font-title">Histórico de Ações (Logs)</CardTitle>
                 <CardDescription>
-                  Rastreabilidade completa de todas as interações no sistema.
+                  Rastreabilidade completa de todas as interações no sistema (CRUD, Mudança de
+                  Status).
                 </CardDescription>
               </div>
               <Button
                 variant="outline"
                 className="border-brand-primary text-brand-primary font-bold"
+                onClick={() => alert('Download do CSV iniciado.')}
               >
                 <Download className="w-4 h-4 mr-2" /> Exportar CSV
               </Button>

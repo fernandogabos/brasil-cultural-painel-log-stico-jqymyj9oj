@@ -24,9 +24,9 @@ export default function TrackerPage() {
   const [tracking, setTracking] = useState(false)
   const [activeTab, setActiveTab] = useState<'status' | 'mensagens'>('status')
 
-  const brandPrimary = 'bg-[#1A2E5A]'
-  const textPrimary = 'text-[#1A2E5A]'
-  const borderPrimary = 'border-[#1A2E5A]'
+  const brandPrimary = 'bg-[#003B73]'
+  const textPrimary = 'text-[#003B73]'
+  const borderPrimary = 'border-[#003B73]'
   const brandOrange = 'bg-[#F47920]'
   const textOrange = 'text-[#F47920]'
   const borderOrange = 'border-[#F47920]'
@@ -68,24 +68,29 @@ export default function TrackerPage() {
     <div className="min-h-screen bg-slate-50 flex flex-col items-center py-8 px-4 font-sans">
       <div
         className={cn(
-          'w-full max-w-3xl rounded-2xl shadow-xl overflow-hidden animate-fade-in-up bg-white',
+          'w-full max-w-3xl rounded-2xl shadow-soft overflow-hidden animate-fade-in-up bg-white',
         )}
       >
         <div className={cn('p-8 text-center text-white', brandPrimary)}>
-          <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white font-black text-3xl shadow-lg mx-auto mb-4 border border-white/20">
+          <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-white font-title font-black text-3xl shadow-lg mx-auto mb-4 border border-white/20">
             BC
           </div>
-          <h1 className="text-2xl font-bold tracking-tight mb-2">Acompanhe sua Entrega</h1>
-          <p className="text-blue-100/80 max-w-md mx-auto text-sm">
+          <h1 className="text-3xl font-title font-bold tracking-tight mb-2">
+            Acompanhe sua Entrega
+          </h1>
+          <p className="text-blue-100/80 max-w-md mx-auto text-sm font-medium">
             Transparência total desde a formalização até a entrega na escola.
           </p>
           <div className="flex gap-2 mt-8 max-w-sm mx-auto">
             <Input
               placeholder="Digite seu Token ou UUID..."
-              className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12"
+              className="bg-white/10 border-white/20 text-white placeholder:text-white/50 h-12 rounded-xl"
             />
             <Button
-              className={cn('h-12 px-6 font-bold hover:opacity-90 text-white', brandOrange)}
+              className={cn(
+                'h-12 px-6 font-bold hover:opacity-90 text-white rounded-xl',
+                brandOrange,
+              )}
               onClick={() => setTracking(true)}
             >
               <Search className="w-4 h-4 mr-2" /> Buscar
@@ -122,7 +127,7 @@ export default function TrackerPage() {
                   </div>
                   <div className="p-4 text-center">
                     <p className="text-xs text-slate-500 font-medium uppercase mb-1">Previsão</p>
-                    <p className={cn('font-bold text-sm', textPrimary)}>20/10/2023</p>
+                    <p className={cn('font-bold text-sm', textPrimary)}>20/10/2026</p>
                   </div>
                   <div className="p-4 text-center">
                     <p className="text-xs text-slate-500 font-medium uppercase mb-1">
@@ -132,7 +137,7 @@ export default function TrackerPage() {
                   </div>
                   <div className="p-4 text-center">
                     <p className="text-xs text-slate-500 font-medium uppercase mb-1">Escolas</p>
-                    <p className={cn('font-bold text-sm', textPrimary)}>12 Locais</p>
+                    <p className={cn('font-bold text-sm', textPrimary)}>3 Locais</p>
                   </div>
                 </div>
 
@@ -186,7 +191,12 @@ export default function TrackerPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   <div className="p-8 border-r border-slate-100 bg-white">
-                    <h3 className={cn('font-bold text-lg mb-6 flex items-center', textPrimary)}>
+                    <h3
+                      className={cn(
+                        'font-title font-bold text-lg mb-6 flex items-center',
+                        textPrimary,
+                      )}
+                    >
                       <Clock className="w-5 h-5 mr-2 opacity-50" /> Histórico
                     </h3>
                     <div className="relative pl-6 space-y-6 before:absolute before:inset-0 before:ml-[11px] before:h-full before:w-px before:bg-slate-100">
@@ -216,36 +226,37 @@ export default function TrackerPage() {
                     </div>
                   </div>
                   <div className="p-8 bg-slate-50/50">
-                    <h3 className="font-bold text-lg mb-6 text-slate-700 flex items-center">
-                      <AlertCircle className="w-5 h-5 mr-2 opacity-50" /> Relatar Problema
+                    <h3 className="font-title font-bold text-lg mb-6 text-status-attention flex items-center">
+                      <AlertCircle className="w-5 h-5 mr-2" /> Relatar Problema
                     </h3>
-                    <p className="text-sm text-slate-500 mb-6">
-                      Faltou algo ou tem alguma dúvida? Envie um alerta direto para nossa equipe.
+                    <p className="text-sm text-slate-500 mb-6 font-medium">
+                      Faltou algo ou tem alguma dúvida? Envie um alerta direto para nossa equipe
+                      logística.
                     </p>
                     <form onSubmit={handleReport} className="space-y-4">
                       <div className="space-y-2">
                         <Label className="text-xs uppercase text-slate-500 font-bold">
                           Seu Nome / Cargo
                         </Label>
-                        <Input className="bg-white" required />
+                        <Input className="bg-white rounded-xl" required />
                       </div>
                       <div className="space-y-2">
                         <Label className="text-xs uppercase text-slate-500 font-bold">
                           Telefone
                         </Label>
-                        <Input className="bg-white" required />
+                        <Input className="bg-white rounded-xl" required />
                       </div>
                       <div className="space-y-2">
                         <Label className="text-xs uppercase text-slate-500 font-bold">
-                          Descrição
+                          Descrição do Problema (Escola e Item)
                         </Label>
-                        <Textarea className="bg-white min-h-[100px]" required />
+                        <Textarea className="bg-white min-h-[100px] rounded-xl" required />
                       </div>
                       <Button
                         type="submit"
-                        className="w-full bg-[#F47920] hover:bg-[#F47920]/90 text-white"
+                        className="w-full bg-[#F47920] hover:bg-[#F47920]/90 text-white rounded-xl font-bold"
                       >
-                        Enviar Alerta
+                        Enviar Alerta de Divergência
                       </Button>
                     </form>
                   </div>
@@ -255,7 +266,9 @@ export default function TrackerPage() {
 
             {activeTab === 'mensagens' && (
               <div className="p-8 bg-slate-50/30">
-                <h3 className={cn('font-bold text-xl mb-6 flex items-center', textPrimary)}>
+                <h3
+                  className={cn('font-title font-bold text-xl mb-6 flex items-center', textPrimary)}
+                >
                   Central de Comunicação com a Logística
                 </h3>
                 <div className="space-y-4 max-w-2xl mx-auto">
@@ -266,7 +279,7 @@ export default function TrackerPage() {
                         'p-4 rounded-xl',
                         m.sender === 'municipality'
                           ? 'bg-white border border-slate-200 ml-12 shadow-sm'
-                          : cn('text-white mr-12 shadow-md', brandPrimary),
+                          : cn('text-white mr-12 shadow-soft', brandPrimary),
                       )}
                     >
                       <p
@@ -290,9 +303,11 @@ export default function TrackerPage() {
                   <div className="mt-8 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                     <Textarea
                       placeholder="Digite sua dúvida ou resposta para a equipe logística..."
-                      className="mb-3 bg-slate-50 border-transparent focus-visible:ring-1 focus-visible:ring-[#F47920]"
+                      className="mb-3 bg-slate-50 border-transparent focus-visible:ring-1 focus-visible:ring-[#F47920] rounded-xl"
                     />
-                    <Button className={cn('w-full text-white font-bold h-10', brandOrange)}>
+                    <Button
+                      className={cn('w-full text-white font-bold h-10 rounded-xl', brandOrange)}
+                    >
                       Enviar Mensagem
                     </Button>
                   </div>

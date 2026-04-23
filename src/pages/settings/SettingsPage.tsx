@@ -34,16 +34,16 @@ export default function SettingsPage() {
   return (
     <div className="flex flex-col gap-6 animate-fade-in-up">
       <div>
-        <h1 className="text-3xl font-bold text-brand-primary tracking-tight">
+        <h1 className="text-3xl font-title font-bold text-brand-primary tracking-tight">
           Configurações do Sistema
         </h1>
         <p className="text-muted-foreground mt-1">
-          Gerencie regras operacionais, SLAs e personalizações.
+          Gerencie regras operacionais, SLAs e personalizações (Restrito a Administradores).
         </p>
       </div>
 
       <Tabs defaultValue="sla" className="w-full">
-        <TabsList className="mb-6 bg-slate-100 p-1">
+        <TabsList className="mb-6 bg-slate-100 p-1 rounded-xl">
           <TabsTrigger
             value="sla"
             className="data-[state=active]:bg-white data-[state=active]:text-brand-primary font-semibold"
@@ -71,9 +71,9 @@ export default function SettingsPage() {
         </TabsList>
 
         <TabsContent value="sla" className="space-y-4">
-          <Card className="border-t-4 border-t-brand-primary">
+          <Card className="border-t-4 border-t-brand-primary shadow-soft">
             <CardHeader>
-              <CardTitle>Prazos e Alertas (Dias Úteis)</CardTitle>
+              <CardTitle className="font-title">Prazos e Alertas (Dias Úteis)</CardTitle>
               <CardDescription>
                 Defina os limites para cada etapa do processo logístico e as ações de violação.
               </CardDescription>
@@ -148,9 +148,9 @@ export default function SettingsPage() {
         </TabsContent>
 
         <TabsContent value="box" className="space-y-4">
-          <Card>
+          <Card className="shadow-soft">
             <CardHeader>
-              <CardTitle>Padrão de Caixas e Margem Operacional</CardTitle>
+              <CardTitle className="font-title">Padrão de Caixas e Margem Operacional</CardTitle>
             </CardHeader>
             <CardContent>
               <Table>
@@ -202,9 +202,9 @@ export default function SettingsPage() {
         </TabsContent>
 
         <TabsContent value="notifications" className="space-y-4">
-          <Card>
+          <Card className="shadow-soft">
             <CardHeader>
-              <CardTitle>Regras de Comunicação do Sistema</CardTitle>
+              <CardTitle className="font-title">Regras de Comunicação do Sistema</CardTitle>
             </CardHeader>
             <CardContent>
               <Table>
@@ -285,9 +285,9 @@ export default function SettingsPage() {
         </TabsContent>
 
         <TabsContent value="tracker" className="space-y-4">
-          <Card>
+          <Card className="shadow-soft">
             <CardHeader>
-              <CardTitle>Personalização do Tracker Público</CardTitle>
+              <CardTitle className="font-title">Personalização do Tracker Público</CardTitle>
               <CardDescription>
                 Configure como o município visualiza o acompanhamento.
               </CardDescription>
@@ -304,7 +304,7 @@ export default function SettingsPage() {
                 </div>
                 <div className="grid gap-2 pt-4">
                   <Label>Cor Primária (Hex)</Label>
-                  <Input defaultValue="#1A2E5A" className="w-32" type="color" />
+                  <Input defaultValue="#003B73" className="w-32 h-10 p-1" type="color" />
                 </div>
               </div>
               <div className="space-y-4 bg-slate-50 p-6 rounded-xl border">

@@ -83,11 +83,11 @@ export function AppSidebar() {
                       asChild
                       isActive={isActive}
                       tooltip={item.title}
-                      className="data-[active=true]:bg-accent data-[active=true]:text-white transition-all duration-200"
+                      className="data-[active=true]:bg-brand-medium/20 data-[active=true]:border-l-4 data-[active=true]:border-brand-orange data-[active=true]:text-white transition-all duration-200 border-l-4 border-transparent hover:bg-white/5"
                     >
                       <Link to={item.url}>
                         <item.icon className="w-5 h-5" />
-                        <span>{item.title}</span>
+                        <span className="font-medium">{item.title}</span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

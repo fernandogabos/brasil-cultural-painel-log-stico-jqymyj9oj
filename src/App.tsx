@@ -22,6 +22,11 @@ import AdminTicketsPage from './pages/atendimento/AdminTicketsPage'
 import AdminTicketDetailsPage from './pages/atendimento/AdminTicketDetailsPage'
 import AdminDashboardPage from './pages/atendimento/AdminDashboardPage'
 import AdminFaqPage from './pages/atendimento/AdminFaqPage'
+import ExpedicaoPage from './pages/expedicao/ExpedicaoPage'
+import RomaneioDetailsPage from './pages/expedicao/RomaneioDetailsPage'
+import RouteTrackingPage from './pages/expedicao/RouteTrackingPage'
+import DivergenciasPage from './pages/divergencias/DivergenciasPage'
+import DivergenciaDetailsPage from './pages/divergencias/DivergenciaDetailsPage'
 
 const App = () => (
   <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
@@ -44,6 +49,11 @@ const App = () => (
           <Route path="/atendimento/admin/dashboard" element={<AdminDashboardPage />} />
           <Route path="/atendimento/admin/faq" element={<AdminFaqPage />} />
           <Route path="/atendimento/admin/:id" element={<AdminTicketDetailsPage />} />
+          <Route path="/expedicao" element={<ExpedicaoPage />} />
+          <Route path="/expedicao/:id" element={<RomaneioDetailsPage />} />
+          <Route path="/expedicao/:id/route" element={<RouteTrackingPage />} />
+          <Route path="/divergencias" element={<DivergenciasPage />} />
+          <Route path="/divergencias/:id" element={<DivergenciaDetailsPage />} />
           {/* Outros módulos seriam adicionados aqui */}
         </Route>
 

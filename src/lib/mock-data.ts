@@ -199,3 +199,53 @@ export const MOCK_OS_ITEMS = [
     isExam: true,
   },
 ]
+
+export const MOCK_ROMANEIOS = [
+  {
+    id: 'ROM-2023-0001',
+    orderId: 'PED-2023-0001',
+    date: '2023-10-14',
+    status: 'Em trânsito',
+    driver: 'João Marcos',
+    plate: 'ABC-1234',
+    carrier: 'LogExpress S/A',
+    schools: 12,
+    progress: 4,
+  },
+  {
+    id: 'ROM-2023-0002',
+    orderId: 'PED-2023-0003',
+    date: '2023-10-15',
+    status: 'Pendente',
+    driver: '-',
+    plate: '-',
+    carrier: '-',
+    schools: 15,
+    progress: 0,
+  },
+]
+
+export const MOCK_DIVERGENCIAS = [
+  {
+    id: 'DIV-1001',
+    orderId: 'PED-2023-0001',
+    type: 'Quantidade',
+    description: 'Faltaram 10 caixas do Livro de Matemática 1º Ano',
+    status: 'Aberta',
+    priority: 'Alta',
+    reportedBy: 'Maria Silva (Diretora)',
+    slaEnd: new Date(Date.now() + 12 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id: 'DIV-1002',
+    orderId: 'PED-2023-0003',
+    type: 'Avaria',
+    description: 'Livros amassados na caixa 4',
+    status: 'Resolvida',
+    priority: 'Média',
+    reportedBy: 'João Pedro',
+    slaEnd: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+  },
+]

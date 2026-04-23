@@ -23,13 +23,13 @@ export default function TrackerPage() {
   const [tracking, setTracking] = useState(false)
 
   // Brand colors mapped to theme variables
-  const brandPrimary = 'bg-primary'
-  const textPrimary = 'text-primary'
-  const borderPrimary = 'border-primary'
+  const brandPrimary = 'bg-[#1A2E5A]'
+  const textPrimary = 'text-[#1A2E5A]'
+  const borderPrimary = 'border-[#1A2E5A]'
 
-  const brandOrange = 'bg-accent'
-  const textOrange = 'text-accent'
-  const borderOrange = 'border-accent'
+  const brandOrange = 'bg-[#F47920]'
+  const textOrange = 'text-[#F47920]'
+  const borderOrange = 'border-[#F47920]'
 
   const steps = [
     { title: 'Contrato', icon: FileText, done: true, current: false },
@@ -42,9 +42,14 @@ export default function TrackerPage() {
 
   const feed = [
     {
+      time: 'Hoje, 11:15',
+      text: 'Divergência (DIV-1001) relatada em análise pela nossa equipe.',
+      isNew: true,
+    },
+    {
       time: 'Hoje, 09:30',
       text: 'Seu material foi separado e embalado pela nossa equipe. Caixas finalizadas com sucesso.',
-      isNew: true,
+      isNew: false,
     },
     {
       time: 'Ontem, 14:00',
@@ -247,7 +252,7 @@ export default function TrackerPage() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-slate-800 hover:bg-slate-700 text-white"
+                    className="w-full bg-[#F47920] hover:bg-[#F47920]/90 text-white"
                   >
                     Enviar Alerta
                   </Button>

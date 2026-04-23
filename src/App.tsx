@@ -34,6 +34,18 @@ import SettingsPage from './pages/settings/SettingsPage'
 import UsersPage from './pages/users/UsersPage'
 import DemoFlowPage from './pages/demo/DemoFlowPage'
 
+// Portal do Cliente
+import { PortalLayout } from './components/portal/PortalLayout'
+import PortalLogin from './pages/portal/PortalLogin'
+import PortalDashboard from './pages/portal/PortalDashboard'
+import PortalContracts from './pages/portal/contracts/PortalContracts'
+import PortalContractDetails from './pages/portal/contracts/PortalContractDetails'
+import PortalOrders from './pages/portal/orders/PortalOrders'
+import PortalNewOrder from './pages/portal/orders/PortalNewOrder'
+import PortalTickets from './pages/portal/tickets/PortalTickets'
+import PortalTicketDetails from './pages/portal/tickets/PortalTicketDetails'
+import PortalMural from './pages/portal/mural/PortalMural'
+
 const App = () => (
   <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
     <TooltipProvider>
@@ -67,6 +79,20 @@ const App = () => (
           <Route path="/users" element={<UsersPage />} />
           <Route path="/demo" element={<DemoFlowPage />} />
           {/* Outros módulos seriam adicionados aqui */}
+        </Route>
+
+        {/* Portal do Cliente */}
+        <Route path="/portal/login" element={<PortalLogin />} />
+        <Route path="/portal" element={<PortalLayout />}>
+          <Route index element={<PortalDashboard />} />
+          <Route path="dashboard" element={<PortalDashboard />} />
+          <Route path="contratos" element={<PortalContracts />} />
+          <Route path="contratos/:id" element={<PortalContractDetails />} />
+          <Route path="pedidos" element={<PortalOrders />} />
+          <Route path="pedidos/novo" element={<PortalNewOrder />} />
+          <Route path="chamados" element={<PortalTickets />} />
+          <Route path="chamados/:id" element={<PortalTicketDetails />} />
+          <Route path="mural" element={<PortalMural />} />
         </Route>
 
         {/* Rota pública fora do Layout (sem sidebar) */}

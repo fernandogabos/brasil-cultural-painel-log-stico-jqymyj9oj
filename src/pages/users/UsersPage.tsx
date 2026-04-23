@@ -36,6 +36,12 @@ export default function UsersPage() {
             <Users className="w-4 h-4 mr-2" /> Usuários Internos
           </TabsTrigger>
           <TabsTrigger
+            value="clients"
+            className="data-[state=active]:bg-white data-[state=active]:text-brand-primary font-semibold"
+          >
+            <Users className="w-4 h-4 mr-2" /> Clientes (Portal)
+          </TabsTrigger>
+          <TabsTrigger
             value="audit"
             className="data-[state=active]:bg-white data-[state=active]:text-brand-primary font-semibold"
           >
@@ -156,6 +162,109 @@ export default function UsersPage() {
                         <Badge variant="secondary" className="text-slate-500">
                           Inativo
                         </Badge>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button variant="ghost" size="icon">
+                          <Edit className="w-4 h-4 text-slate-400" />
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="clients">
+          <Card className="border-t-4 border-t-brand-primary shadow-soft animate-fade-in-up">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <div>
+                <CardTitle className="font-title">Usuários de Clientes (Municípios)</CardTitle>
+                <CardDescription>
+                  Gerencie os acessos ao Portal do Cliente (máx. 5 por município). Controle
+                  permissões e visibilidade de documentos.
+                </CardDescription>
+              </div>
+              <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white font-bold">
+                <Plus className="w-4 h-4 mr-2" /> Novo Acesso Cliente
+              </Button>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center gap-2 mb-6 max-w-sm relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3" />
+                <Input
+                  placeholder="Buscar por município ou CNPJ..."
+                  className="pl-9 bg-slate-50 border-slate-200"
+                />
+              </div>
+              <div className="border rounded-lg overflow-hidden">
+                <Table>
+                  <TableHeader className="bg-slate-50">
+                    <TableRow>
+                      <TableHead className="font-bold text-brand-primary">
+                        Município / CNPJ
+                      </TableHead>
+                      <TableHead className="font-bold text-brand-primary">
+                        Usuário / Email
+                      </TableHead>
+                      <TableHead className="font-bold text-brand-primary">Perfil</TableHead>
+                      <TableHead className="font-bold text-brand-primary">Docs Visíveis?</TableHead>
+                      <TableHead className="font-bold text-brand-primary">Status</TableHead>
+                      <TableHead></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow className="hover:bg-slate-50">
+                      <TableCell>
+                        <p className="font-bold text-slate-800">Campinas - SP</p>
+                        <p className="text-xs text-slate-500">12.345.678/0001-90</p>
+                      </TableCell>
+                      <TableCell>
+                        <p className="font-medium text-slate-700">Maria Silva</p>
+                        <p className="text-xs text-slate-500">maria.silva@campinas.sp.gov.br</p>
+                      </TableCell>
+                      <TableCell>
+                        <Badge
+                          variant="outline"
+                          className="border-brand-primary text-brand-primary"
+                        >
+                          Gestor
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Badge className="bg-blue-100 text-blue-800 border-0">Sim (3)</Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Badge className="bg-emerald-100 text-emerald-800 border-0">Ativo</Badge>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <Button variant="ghost" size="icon">
+                          <Edit className="w-4 h-4 text-slate-400" />
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow className="hover:bg-slate-50">
+                      <TableCell>
+                        <p className="font-bold text-slate-800">Campinas - SP</p>
+                        <p className="text-xs text-slate-500">12.345.678/0001-90</p>
+                      </TableCell>
+                      <TableCell>
+                        <p className="font-medium text-slate-700">João Souza</p>
+                        <p className="text-xs text-slate-500">joao.souza@campinas.sp.gov.br</p>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="secondary" className="text-slate-600">
+                          Acompanhante
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="secondary" className="text-slate-500 border-0">
+                          Não
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Badge className="bg-emerald-100 text-emerald-800 border-0">Ativo</Badge>
                       </TableCell>
                       <TableCell className="text-right">
                         <Button variant="ghost" size="icon">

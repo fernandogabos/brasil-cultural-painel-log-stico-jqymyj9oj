@@ -13,7 +13,7 @@ export default function LandingPage() {
           <div className="flex justify-center lg:justify-start">
             <div className="bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
               <img
-                src="https://img.usecurling.com/i?q=leaf&color=white&shape=fill"
+                src="https://img.usecurling.com/i?q=book&color=white&shape=fill"
                 alt="Brasil Cultural"
                 className="w-20 h-20 object-contain drop-shadow-md"
               />

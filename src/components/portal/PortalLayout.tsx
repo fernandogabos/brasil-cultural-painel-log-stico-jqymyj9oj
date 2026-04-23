@@ -47,7 +47,7 @@ function PortalSidebar() {
         {!isCollapsed ? (
           <div className="flex items-center gap-2 font-bold text-lg tracking-tight text-white animate-fade-in whitespace-nowrap">
             <img
-              src="https://img.usecurling.com/i?q=leaf&color=white&shape=fill"
+              src="https://img.usecurling.com/i?q=book&color=white&shape=fill"
               alt="Brasil Cultural"
               className="w-8 h-8 object-contain shrink-0"
             />
@@ -55,7 +55,7 @@ function PortalSidebar() {
           </div>
         ) : (
           <img
-            src="https://img.usecurling.com/i?q=leaf&color=white&shape=fill"
+            src="https://img.usecurling.com/i?q=book&color=white&shape=fill"
             alt="Brasil Cultural"
             className="w-8 h-8 object-contain shrink-0"
           />

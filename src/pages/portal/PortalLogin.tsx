@@ -29,7 +29,7 @@ export default function PortalLogin() {
         <CardHeader className="text-center pb-8 pt-10">
           <div className="mx-auto w-16 h-16 mb-6">
             <img
-              src="https://img.usecurling.com/i?q=leaf&color=green&shape=fill"
+              src="https://img.usecurling.com/i?q=book&color=green&shape=fill"
               alt="Brasil Cultural"
               className="w-full h-full object-contain drop-shadow-sm"
             />

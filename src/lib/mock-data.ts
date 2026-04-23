@@ -101,3 +101,101 @@ export const CHART_CONTRACTS_STATUS = [
   { status: 'Críticos', count: 5, fill: 'var(--color-chart-4)' },
   { status: 'Concluídos', count: 30, fill: 'var(--color-chart-3)' },
 ]
+
+export const MOCK_ORDERS = [
+  {
+    id: 'PED-2023-0001',
+    contractId: 'BC-2023-0045',
+    municipality: 'São Paulo - SP',
+    date: '2023-10-10',
+    status: 'Em separação',
+    items: 1500,
+    schools: 12,
+    daysInStage: 2,
+  },
+  {
+    id: 'PED-2023-0002',
+    contractId: 'BC-2023-0046',
+    municipality: 'Campinas - SP',
+    date: '2023-10-12',
+    status: 'Pendente',
+    items: 500,
+    schools: 4,
+    daysInStage: 5,
+  },
+  {
+    id: 'PED-2023-0003',
+    contractId: 'BC-2023-0048',
+    municipality: 'Osasco - SP',
+    date: '2023-01-20',
+    status: 'Concluído',
+    items: 2000,
+    schools: 15,
+    daysInStage: 0,
+  },
+]
+
+export const MOCK_OS = [
+  {
+    id: 'OS-2023-0001',
+    orderId: 'PED-2023-0001',
+    date: '2023-10-11',
+    status: 'Em andamento',
+    progress: 45,
+    operator: 'Vanessa',
+  },
+  {
+    id: 'OS-2023-0002',
+    orderId: 'PED-2023-0002',
+    date: '2023-10-13',
+    status: 'Aguardando início',
+    progress: 0,
+    operator: '-',
+  },
+]
+
+export const MOCK_SCHOOLS_UPLOAD = [
+  {
+    name: 'EMEB Monteiro Lobato',
+    address: 'Rua das Flores, 123',
+    items: 450,
+    boxes: 8,
+    zip: '01000-000',
+    responsible: 'Maria Silva',
+  },
+  {
+    name: 'EE Tarsila do Amaral',
+    address: 'Av. Brasil, 987',
+    items: 1050,
+    boxes: 18,
+    zip: '02000-000',
+    responsible: 'João Souza',
+  },
+]
+
+export const MOCK_OS_ITEMS = [
+  {
+    id: 1,
+    name: 'Livro Didático 1º Ano (Matemática)',
+    quantity: 300,
+    boxes: 5,
+    checked: false,
+    isExam: false,
+  },
+  {
+    id: 2,
+    name: 'Livro Didático 1º Ano (Português)',
+    quantity: 300,
+    boxes: 5,
+    checked: false,
+    isExam: false,
+  },
+  {
+    id: 3,
+    name: 'Caderno de Avaliação Diagnóstica',
+    quantity: 450,
+    boxes: 8,
+    checked: false,
+    isExam: true,
+  },
+]

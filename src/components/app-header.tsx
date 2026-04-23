@@ -14,7 +14,7 @@ export function AppHeader() {
           variant="ghost"
           size="icon"
           onClick={toggleSidebar}
-          className="md:hidden text-primary-foreground hover:bg-primary-foreground/10 hover:text-white"
+          className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-white"
         >
           <Menu className="h-5 w-5" />
         </Button>

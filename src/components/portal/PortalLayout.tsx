@@ -43,18 +43,22 @@ function PortalSidebar() {
 
   return (
     <Sidebar collapsible="icon" className="border-r-0 shadow-lg">
-      <SidebarHeader className="h-16 flex items-center justify-center border-b border-sidebar-border px-4">
+      <SidebarHeader className="h-16 flex items-center justify-center border-b border-sidebar-border px-4 overflow-hidden">
         {!isCollapsed ? (
-          <div className="flex items-center gap-2 font-bold text-lg tracking-tight text-white animate-fade-in">
-            <div className="w-8 h-8 bg-brand-orange rounded-md flex items-center justify-center text-white">
-              BC
-            </div>
+          <div className="flex items-center gap-2 font-bold text-lg tracking-tight text-white animate-fade-in whitespace-nowrap">
+            <img
+              src="https://img.usecurling.com/i?q=leaf&color=white&shape=fill"
+              alt="Brasil Cultural"
+              className="w-8 h-8 object-contain shrink-0"
+            />
             <span>Portal do Cliente</span>
           </div>
         ) : (
-          <div className="w-8 h-8 bg-brand-orange rounded-md flex items-center justify-center text-white font-bold">
-            BC
-          </div>
+          <img
+            src="https://img.usecurling.com/i?q=leaf&color=white&shape=fill"
+            alt="Brasil Cultural"
+            className="w-8 h-8 object-contain shrink-0"
+          />
         )}
       </SidebarHeader>
       <SidebarContent>
@@ -119,7 +123,7 @@ function PortalHeader() {
           variant="ghost"
           size="icon"
           onClick={toggleSidebar}
-          className="md:hidden text-slate-600 hover:bg-slate-100"
+          className="text-slate-600 hover:bg-slate-100"
         >
           <Menu className="h-5 w-5" />
         </Button>

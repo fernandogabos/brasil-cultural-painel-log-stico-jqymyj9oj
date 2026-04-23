@@ -30,7 +30,7 @@ import {
 } from 'lucide-react'
 
 const navItems = [
-  { title: 'Dashboard', url: '/', icon: LayoutDashboard },
+  { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboard },
   { title: 'Demo Flow', url: '/demo', icon: PlayCircle },
   { title: 'Mural de Avisos', url: '/mural', icon: Megaphone },
   { title: 'Contratos', url: '/contratos', icon: FileText },
@@ -53,18 +53,22 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" className="border-r-0 shadow-lg">
-      <SidebarHeader className="h-16 flex items-center justify-center border-b border-sidebar-border px-4">
+      <SidebarHeader className="h-16 flex items-center justify-center border-b border-sidebar-border px-4 overflow-hidden">
         {!isCollapsed ? (
-          <div className="flex items-center gap-2 font-bold text-lg tracking-tight text-white animate-fade-in">
-            <div className="w-8 h-8 bg-accent rounded-md flex items-center justify-center text-white">
-              BC
-            </div>
+          <div className="flex items-center gap-2 font-bold text-lg tracking-tight text-white animate-fade-in whitespace-nowrap">
+            <img
+              src="https://img.usecurling.com/i?q=leaf&color=white&shape=fill"
+              alt="Brasil Cultural"
+              className="w-8 h-8 object-contain shrink-0"
+            />
             <span>Painel Logístico</span>
           </div>
         ) : (
-          <div className="w-8 h-8 bg-accent rounded-md flex items-center justify-center text-white font-bold">
-            BC
-          </div>
+          <img
+            src="https://img.usecurling.com/i?q=leaf&color=white&shape=fill"
+            alt="Brasil Cultural"
+            className="w-8 h-8 object-contain shrink-0"
+          />
         )}
       </SidebarHeader>
       <SidebarContent>

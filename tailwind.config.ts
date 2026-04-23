@@ -36,8 +36,8 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         brand: {
-          primary: '#003B73',
-          medium: '#1565A8',
+          primary: '#2E7D32',
+          medium: '#388E3C',
           orange: '#F47920',
         },
         status: {

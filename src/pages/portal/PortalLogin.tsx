@@ -27,8 +27,12 @@ export default function PortalLogin() {
       <div className="absolute top-0 left-0 w-full h-1/2 bg-brand-primary rounded-b-[100px] shadow-lg"></div>
       <Card className="w-full max-w-md z-10 shadow-elevation border-0 animate-fade-in-up">
         <CardHeader className="text-center pb-8 pt-10">
-          <div className="mx-auto w-16 h-16 bg-brand-orange text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
-            <Building2 className="w-8 h-8" />
+          <div className="mx-auto w-16 h-16 mb-6">
+            <img
+              src="https://img.usecurling.com/i?q=leaf&color=green&shape=fill"
+              alt="Brasil Cultural"
+              className="w-full h-full object-contain drop-shadow-sm"
+            />
           </div>
           <CardTitle className="text-2xl font-title text-brand-primary">
             Portal do Cliente

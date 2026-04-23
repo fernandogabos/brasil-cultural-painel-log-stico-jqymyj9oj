@@ -56,12 +56,34 @@ export default function PortalIndicators() {
     },
   }
 
+  const totalSolicitacoes =
+    data.orders.solicitacoes.approved +
+    data.orders.solicitacoes.inAnalysis +
+    data.orders.solicitacoes.rejected
+
   return (
     <div className="flex flex-col gap-8 animate-fade-in-up pb-8 print:bg-white print:text-black print:p-8">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+      {/* Print Only Header */}
+      <div className="hidden print:flex flex-col items-center justify-center mb-8 border-b-2 border-[#003B73] pb-6">
+        <div className="w-16 h-16 bg-[#F47920] rounded-xl flex items-center justify-center text-white font-bold text-2xl mb-4">
+          BC
+        </div>
+        <h1 className="text-2xl font-title font-bold text-[#1A2535]">Brasil Cultural</h1>
+        <h2 className="text-xl font-title font-bold text-[#1A2535] mt-2">
+          Relatório Gerencial de Contrato
+        </h2>
+        <p className="text-sm text-slate-500 mt-2">
+          Município: {MOCK_PORTAL_USER.municipality} | CNPJ: {MOCK_PORTAL_USER.cnpj}
+        </p>
+        <p className="text-sm text-slate-500">
+          Data de Geração: {new Date().toLocaleDateString('pt-BR')}
+        </p>
+      </div>
+
+      {/* Screen Header */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-4 print:hidden">
         <div>
-          <h1 className="text-3xl font-title font-bold text-brand-primary tracking-tight">
+          <h1 className="text-3xl font-title font-bold text-[#1A2535] tracking-tight">
             Indicadores de Gestão
           </h1>
           <p className="text-muted-foreground mt-1 text-sm md:text-base">
@@ -72,7 +94,7 @@ export default function PortalIndicators() {
         <Button
           onClick={handleExport}
           disabled={isExporting}
-          className="bg-brand-primary hover:bg-brand-primary/90 text-white shadow-sm print:hidden"
+          className="bg-[#003B73] hover:bg-[#003B73]/90 text-white shadow-sm"
         >
           <Download className="w-4 h-4 mr-2" />
           Exportar Relatório PDF
@@ -81,25 +103,28 @@ export default function PortalIndicators() {
 
       {/* Block 1: Contract Execution */}
       <section className="space-y-4">
-        <h2 className="text-xl font-title font-semibold text-slate-800 flex items-center gap-2">
-          <FileText className="w-5 h-5 text-brand-medium" /> Execução do Contrato
+        <h2 className="text-xl font-title font-bold text-[#1A2535] flex items-center gap-2">
+          <FileText className="w-5 h-5 text-[#003B73]" /> Execução do Contrato
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+          <Card className="rounded-[12px] shadow-soft border-slate-200">
             <CardHeader className="pb-2">
-              <CardTitle className="text-base font-medium text-slate-500">
-                Balanço Financeiro
+              <CardTitle className="text-base font-title font-bold text-[#1A2535]">
+                Valor Total vs. Executado
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="mb-6">
                 <div className="flex justify-between text-sm mb-2">
-                  <span className="font-medium text-brand-primary">Valor Executado</span>
-                  <span className="font-medium text-slate-700">
+                  <span className="font-medium text-[#003B73]">Valor Executado</span>
+                  <span className="font-bold text-slate-700">
                     {formatCurrency(data.financial.executedValue)}
                   </span>
                 </div>
-                <Progress value={financialPercent} className="h-3 bg-slate-100" />
+                <Progress
+                  value={financialPercent}
+                  className="h-3 bg-slate-100 [&>div]:bg-[#003B73]"
+                />
                 <div className="flex justify-between text-xs text-muted-foreground mt-2">
                   <span>0%</span>
                   <span>Total: {formatCurrency(data.financial.totalValue)}</span>
@@ -107,26 +132,30 @@ export default function PortalIndicators() {
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                  <p className="text-xs text-slate-500 mb-1">Saldo Disponível</p>
-                  <p className="text-lg font-bold text-emerald-600">
+                <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                  <p className="text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">
+                    Saldo Disponível
+                  </p>
+                  <p className="text-xl font-bold text-[#2E7D32]">
                     {formatCurrency(data.financial.balance)}
                   </p>
                 </div>
-                <div className="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                  <p className="text-xs text-slate-500 mb-1">Uso Médio Mensal</p>
-                  <p className="text-lg font-bold text-slate-700">
+                <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                  <p className="text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">
+                    Uso Médio Mensal
+                  </p>
+                  <p className="text-xl font-bold text-slate-700">
                     {formatCurrency(data.financial.averageMonthlyUsage)}
                   </p>
                 </div>
               </div>
 
               {data.financial.depletionWarning && (
-                <div className="flex items-start gap-3 p-3 bg-amber-50 border border-amber-200 text-amber-800 rounded-lg">
-                  <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 bg-amber-50 border border-[#F9A825]/30 text-amber-900 rounded-xl">
+                  <AlertTriangle className="w-5 h-5 text-[#F9A825] shrink-0 mt-0.5" />
                   <div className="text-sm">
-                    <p className="font-semibold">Atenção ao Esgotamento</p>
-                    <p className="mt-0.5 leading-snug">
+                    <p className="font-bold">Projeção de Esgotamento</p>
+                    <p className="mt-0.5 leading-snug text-amber-800">
                       O saldo atual é suficiente para aprox.{' '}
                       <strong>{data.financial.estimatedMonthsLeft} meses</strong>. Isso ocorre antes
                       do fim da vigência ({data.financial.contractExpiration}).
@@ -137,10 +166,10 @@ export default function PortalIndicators() {
             </CardContent>
           </Card>
 
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+          <Card className="rounded-[12px] shadow-soft border-slate-200">
             <CardHeader className="pb-2">
-              <CardTitle className="text-base font-medium text-slate-500">
-                Consumo de Itens (SOL/PED)
+              <CardTitle className="text-base font-title font-bold text-[#1A2535]">
+                Consumo por Itens Contratados
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-5">
@@ -150,8 +179,8 @@ export default function PortalIndicators() {
                   <div key={idx} className="space-y-1.5">
                     <div className="flex justify-between text-sm">
                       <span className="font-medium text-slate-700">{item.name}</span>
-                      <span className="text-slate-500 text-xs">
-                        {item.requested} / {item.contracted} un
+                      <span className="text-slate-500 text-xs font-semibold">
+                        {item.requested} / {item.contracted} un ({pct.toFixed(0)}%)
                       </span>
                     </div>
                     <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
@@ -173,27 +202,31 @@ export default function PortalIndicators() {
 
       {/* Block 2: Deliveries & Logistics */}
       <section className="space-y-4 print:break-inside-avoid">
-        <h2 className="text-xl font-title font-semibold text-slate-800 flex items-center gap-2">
-          <Truck className="w-5 h-5 text-brand-orange" /> Logística e Entregas
+        <h2 className="text-xl font-title font-bold text-[#1A2535] flex items-center gap-2">
+          <Truck className="w-5 h-5 text-[#F47920]" /> Logística e Entregas
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4">
-              <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200 bg-brand-primary text-white">
+              <Card className="rounded-[12px] shadow-soft border-slate-200 bg-[#003B73] text-white">
                 <CardContent className="p-5">
                   <Package className="w-6 h-6 mb-2 text-white/80" />
-                  <p className="text-sm text-white/80 mb-1">Unidades Entregues</p>
-                  <p className="text-3xl font-bold">
+                  <p className="text-sm font-semibold text-white/80 mb-1 uppercase tracking-wider">
+                    Unidades Entregues no Ano
+                  </p>
+                  <p className="text-3xl font-title font-bold">
                     {data.logistics.unitsReceived.toLocaleString()}
                   </p>
                 </CardContent>
               </Card>
-              <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+              <Card className="rounded-[12px] shadow-soft border-slate-200">
                 <CardContent className="p-5">
-                  <MapPin className="w-6 h-6 mb-2 text-brand-medium" />
-                  <p className="text-sm text-slate-500 mb-1">Escolas Atendidas</p>
+                  <MapPin className="w-6 h-6 mb-2 text-[#F47920]" />
+                  <p className="text-sm font-semibold text-slate-500 mb-1 uppercase tracking-wider">
+                    Escolas Atendidas
+                  </p>
                   <div className="flex items-baseline gap-2">
-                    <p className="text-3xl font-bold text-slate-800">
+                    <p className="text-3xl font-title font-bold text-[#1A2535]">
                       {data.logistics.schoolsServed}
                     </p>
                     <p className="text-sm font-medium text-slate-400">
@@ -204,10 +237,10 @@ export default function PortalIndicators() {
               </Card>
             </div>
 
-            <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+            <Card className="rounded-[12px] shadow-soft border-slate-200">
               <CardHeader className="pb-2">
-                <CardTitle className="text-base font-medium text-slate-500">
-                  Timeline de Entregas
+                <CardTitle className="text-base font-title font-bold text-[#1A2535]">
+                  Cronograma de Entregas
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -218,11 +251,11 @@ export default function PortalIndicators() {
                         className={cn(
                           'absolute -left-[21px] top-1 w-3 h-3 rounded-full border-2 border-white shadow-sm',
                           event.status === 'completed'
-                            ? 'bg-emerald-500'
-                            : 'bg-brand-orange animate-pulse',
+                            ? 'bg-[#2E7D32]'
+                            : 'bg-[#003B73] animate-pulse',
                         )}
                       />
-                      <p className="text-sm font-medium text-slate-800">{event.description}</p>
+                      <p className="text-sm font-bold text-[#1A2535]">{event.description}</p>
                       <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
                         <Clock className="w-3 h-3" /> {event.date}
                       </p>
@@ -233,25 +266,25 @@ export default function PortalIndicators() {
             </Card>
           </div>
 
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200 overflow-hidden flex flex-col">
+          <Card className="rounded-[12px] shadow-soft border-slate-200 overflow-hidden flex flex-col">
             <CardHeader className="pb-3 border-b border-slate-100 bg-white z-10">
-              <CardTitle className="text-base font-medium text-slate-500 flex items-center justify-between">
+              <CardTitle className="text-base font-title font-bold text-[#1A2535] flex items-center justify-between">
                 <span>Mapa de Escolas</span>
-                <div className="flex gap-3 text-xs">
-                  <span className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" /> Entregue
+                <div className="flex gap-3 text-xs font-semibold">
+                  <span className="flex items-center gap-1 text-slate-600">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#2E7D32]" /> Entregue
                   </span>
-                  <span className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-brand-primary" /> Rota
+                  <span className="flex items-center gap-1 text-slate-600">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#003B73]" /> Programado
                   </span>
-                  <span className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-slate-400" /> S/ Pedido
+                  <span className="flex items-center gap-1 text-slate-600">
+                    <span className="w-2.5 h-2.5 rounded-full bg-slate-400" /> S/ Pedido
                   </span>
                 </div>
               </CardTitle>
             </CardHeader>
             <div className="relative flex-1 min-h-[300px] bg-slate-100 bg-[url('https://img.usecurling.com/p/800/600?q=city%20map&color=gray')] bg-cover bg-center">
-              <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px]" />
+              <div className="absolute inset-0 bg-white/50 backdrop-blur-[2px]" />
               {data.logistics.mapPins.map((pin) => (
                 <div
                   key={pin.id}
@@ -260,15 +293,15 @@ export default function PortalIndicators() {
                 >
                   <MapPin
                     className={cn(
-                      'w-6 h-6 drop-shadow-md transition-transform group-hover:scale-125',
+                      'w-7 h-7 drop-shadow-md transition-transform group-hover:scale-125',
                       pin.status === 'completed'
-                        ? 'text-emerald-500 fill-emerald-100'
+                        ? 'text-[#2E7D32] fill-[#2E7D32]/20'
                         : pin.status === 'in-progress'
-                          ? 'text-brand-primary fill-blue-100'
+                          ? 'text-[#003B73] fill-[#003B73]/20'
                           : 'text-slate-400 fill-slate-100',
                     )}
                   />
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-slate-800 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity z-20 shadow-lg">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-[#1A2535] text-white text-[11px] font-medium px-2.5 py-1 rounded-md opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity z-20 shadow-lg">
                     {pin.name}
                   </div>
                 </div>
@@ -280,42 +313,48 @@ export default function PortalIndicators() {
 
       {/* Block 3: Requests & Orders */}
       <section className="space-y-4 print:break-inside-avoid">
-        <h2 className="text-xl font-title font-semibold text-slate-800 flex items-center gap-2">
-          <Package className="w-5 h-5 text-emerald-600" /> Monitoramento de Pedidos (SOL e PED)
+        <h2 className="text-xl font-title font-bold text-[#1A2535] flex items-center gap-2">
+          <Package className="w-5 h-5 text-[#2E7D32]" /> Monitoramento de Pedidos (SOL e PED)
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base font-medium text-slate-500">
+          <Card className="rounded-[12px] shadow-soft border-slate-200">
+            <CardHeader className="pb-2 flex flex-row items-center justify-between">
+              <CardTitle className="text-base font-title font-bold text-[#1A2535]">
                 Status de Solicitações (SOL)
               </CardTitle>
+              <Badge
+                variant="outline"
+                className="font-bold border-slate-300 text-slate-700 bg-slate-50"
+              >
+                Total: {totalSolicitacoes}
+              </Badge>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-3 gap-3">
-                <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-center flex flex-col items-center justify-center">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mb-1" />
-                  <p className="text-2xl font-bold text-emerald-700">
+                <div className="bg-emerald-50 border border-[#2E7D32]/20 p-4 rounded-xl text-center flex flex-col items-center justify-center">
+                  <CheckCircle2 className="w-5 h-5 text-[#2E7D32] mb-1" />
+                  <p className="text-2xl font-title font-bold text-[#2E7D32]">
                     {data.orders.solicitacoes.approved}
                   </p>
-                  <p className="text-xs text-emerald-600/80 font-semibold uppercase mt-1">
+                  <p className="text-[10px] md:text-xs text-[#2E7D32]/80 font-bold uppercase mt-1">
                     Aprovadas
                   </p>
                 </div>
-                <div className="bg-amber-50 border border-amber-100 p-4 rounded-xl text-center flex flex-col items-center justify-center">
-                  <Clock className="w-5 h-5 text-amber-500 mb-1" />
-                  <p className="text-2xl font-bold text-amber-700">
+                <div className="bg-amber-50 border border-[#F9A825]/20 p-4 rounded-xl text-center flex flex-col items-center justify-center">
+                  <Clock className="w-5 h-5 text-[#F9A825] mb-1" />
+                  <p className="text-2xl font-title font-bold text-amber-700">
                     {data.orders.solicitacoes.inAnalysis}
                   </p>
-                  <p className="text-xs text-amber-600/80 font-semibold uppercase mt-1">
+                  <p className="text-[10px] md:text-xs text-amber-700/80 font-bold uppercase mt-1">
                     Em Análise
                   </p>
                 </div>
-                <div className="bg-rose-50 border border-rose-100 p-4 rounded-xl text-center flex flex-col items-center justify-center">
-                  <AlertCircle className="w-5 h-5 text-rose-500 mb-1" />
-                  <p className="text-2xl font-bold text-rose-700">
+                <div className="bg-rose-50 border border-[#C62828]/20 p-4 rounded-xl text-center flex flex-col items-center justify-center">
+                  <AlertCircle className="w-5 h-5 text-[#C62828] mb-1" />
+                  <p className="text-2xl font-title font-bold text-[#C62828]">
                     {data.orders.solicitacoes.rejected}
                   </p>
-                  <p className="text-xs text-rose-600/80 font-semibold uppercase mt-1">
+                  <p className="text-[10px] md:text-xs text-[#C62828]/80 font-bold uppercase mt-1">
                     Rejeitadas
                   </p>
                 </div>
@@ -323,10 +362,10 @@ export default function PortalIndicators() {
             </CardContent>
           </Card>
 
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+          <Card className="rounded-[12px] shadow-soft border-slate-200">
             <CardHeader className="pb-2">
-              <CardTitle className="text-base font-medium text-slate-500">
-                Pedidos em Andamento (PED)
+              <CardTitle className="text-base font-title font-bold text-[#1A2535]">
+                Pedidos Ativos (PED)
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -334,22 +373,22 @@ export default function PortalIndicators() {
                 {data.orders.activeOrders.map((order) => (
                   <div
                     key={order.id}
-                    className="flex items-center justify-between p-3 rounded-lg border border-slate-100 hover:bg-slate-50 transition-colors"
+                    className="flex items-center justify-between p-3 rounded-xl border border-slate-100 hover:bg-slate-50 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-[#003B73]/10 flex items-center justify-center text-[#003B73] shrink-0">
                         <Package className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="font-semibold text-slate-800 text-sm">{order.id}</p>
-                        <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
-                          ETA: {order.eta}
+                        <p className="font-bold text-[#1A2535] text-sm">{order.id}</p>
+                        <p className="text-xs font-medium text-slate-500 flex items-center gap-1 mt-0.5">
+                          Entrega Est.: {order.eta}
                         </p>
                       </div>
                     </div>
                     <Badge
                       variant="secondary"
-                      className="bg-brand-medium/10 text-brand-medium border-0 font-semibold"
+                      className="bg-[#003B73]/10 text-[#003B73] border-0 font-bold"
                     >
                       {order.stage}
                     </Badge>
@@ -363,35 +402,37 @@ export default function PortalIndicators() {
 
       {/* Block 4: Support Performance */}
       <section className="space-y-4 print:break-inside-avoid">
-        <h2 className="text-xl font-title font-semibold text-slate-800 flex items-center gap-2">
-          <Star className="w-5 h-5 text-amber-500 fill-amber-500" /> Qualidade do Atendimento
+        <h2 className="text-xl font-title font-bold text-[#1A2535] flex items-center gap-2">
+          <Star className="w-5 h-5 text-[#F9A825] fill-[#F9A825]" /> Qualidade do Atendimento
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+          <Card className="rounded-[12px] shadow-soft border-slate-200">
             <CardContent className="p-6">
-              <p className="text-sm font-medium text-slate-500 mb-4">Volume de Chamados (SLA)</p>
+              <div className="flex justify-between items-center mb-4">
+                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                  Volume de Chamados
+                </p>
+                <Badge
+                  variant="outline"
+                  className="font-bold border-slate-300 text-slate-700 bg-slate-50"
+                >
+                  Total: {data.support.tickets.opened}
+                </Badge>
+              </div>
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-2 rounded bg-slate-50">
-                  <span className="text-sm text-slate-600 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-slate-400" /> Abertos
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-emerald-50 border border-[#2E7D32]/10">
+                  <span className="text-sm font-semibold text-[#2E7D32] flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#2E7D32]" /> Resolvidos
                   </span>
-                  <span className="font-semibold text-slate-800">
-                    {data.support.tickets.opened}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between p-2 rounded bg-emerald-50">
-                  <span className="text-sm text-slate-600 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" /> Resolvidos
-                  </span>
-                  <span className="font-semibold text-emerald-700">
+                  <span className="font-bold text-[#2E7D32] text-lg">
                     {data.support.tickets.resolved}
                   </span>
                 </div>
-                <div className="flex items-center justify-between p-2 rounded bg-amber-50">
-                  <span className="text-sm text-slate-600 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-brand-orange" /> Pendentes
+                <div className="flex items-center justify-between p-2.5 rounded-lg bg-amber-50 border border-[#F9A825]/10">
+                  <span className="text-sm font-semibold text-amber-700 flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F47920]" /> Pendentes
                   </span>
-                  <span className="font-semibold text-amber-700">
+                  <span className="font-bold text-amber-700 text-lg">
                     {data.support.tickets.pending}
                   </span>
                 </div>
@@ -399,59 +440,67 @@ export default function PortalIndicators() {
             </CardContent>
           </Card>
 
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+          <Card className="rounded-[12px] shadow-soft border-slate-200">
             <CardContent className="p-6 flex flex-col items-center justify-center text-center h-full">
-              <div className="w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center text-brand-medium mb-3">
+              <div className="w-12 h-12 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center text-[#003B73] mb-3">
                 <Clock className="w-6 h-6" />
               </div>
-              <p className="text-sm font-medium text-slate-500 mb-1">Tempo Médio de Resposta</p>
-              <p className="text-4xl font-bold text-slate-800 tracking-tight">
-                {data.support.avgResponseTimeDays}{' '}
-                <span className="text-base font-medium text-slate-500">dias</span>
+              <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                Tempo Médio de Resposta
+              </p>
+              <p className="text-4xl font-title font-bold text-[#1A2535] tracking-tight flex items-baseline gap-1">
+                {data.support.avgResponseTimeDays}
+                <span className="text-sm font-medium text-slate-500 lowercase tracking-normal">
+                  dias úteis
+                </span>
               </p>
             </CardContent>
           </Card>
 
-          <Card className="rounded-xl shadow-[0_2px_8px_rgba(0,59,115,0.07)] border-slate-200">
+          <Card className="rounded-[12px] shadow-soft border-slate-200">
             <CardContent className="p-6 h-full flex flex-col">
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <p className="text-sm font-medium text-slate-500 mb-1">Satisfação (CSAT)</p>
+                  <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">
+                    Satisfação (CSAT)
+                  </p>
                   <div className="flex items-center gap-1.5">
-                    <p className="text-2xl font-bold text-slate-800">{data.support.avgCsat}</p>
-                    <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
+                    <p className="text-3xl font-title font-bold text-[#1A2535]">
+                      {data.support.avgCsat}
+                    </p>
+                    <Star className="w-6 h-6 text-[#F9A825] fill-[#F9A825]" />
                   </div>
                 </div>
-                <div className="flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-full">
+                <div className="flex items-center gap-1 text-xs font-bold text-[#2E7D32] bg-emerald-100 px-2 py-1 rounded-full">
                   <TrendingUp className="w-3 h-3" /> +0.2
                 </div>
               </div>
               <div className="flex-1 w-full mt-2 -ml-2">
-                <ChartContainer config={chartConfig} className="h-[100px] w-full aspect-auto">
+                <ChartContainer config={chartConfig} className="h-[90px] w-full aspect-auto">
                   <LineChart
                     data={data.support.csatHistory}
                     margin={{ top: 5, right: 10, left: -25, bottom: 0 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                     <XAxis
                       dataKey="month"
                       axisLine={false}
                       tickLine={false}
-                      tick={{ fontSize: 10, fill: '#94a3b8' }}
+                      tick={{ fontSize: 10, fill: '#64748b', fontWeight: 600 }}
                     />
                     <YAxis
                       axisLine={false}
                       tickLine={false}
                       domain={[3, 5]}
-                      tick={{ fontSize: 10, fill: '#94a3b8' }}
+                      tick={{ fontSize: 10, fill: '#64748b', fontWeight: 600 }}
                     />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Line
                       type="monotone"
                       dataKey="score"
-                      stroke="var(--color-score)"
-                      strokeWidth={2.5}
-                      dot={{ r: 4, fill: 'var(--color-score)', strokeWidth: 0 }}
+                      stroke="#F47920"
+                      strokeWidth={3}
+                      dot={{ r: 4, fill: '#F47920', strokeWidth: 0 }}
                       activeDot={{ r: 6 }}
                     />
                   </LineChart>

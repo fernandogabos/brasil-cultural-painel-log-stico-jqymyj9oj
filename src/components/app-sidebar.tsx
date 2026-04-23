@@ -37,7 +37,6 @@ const navItems = [
   { title: 'Empenhos', url: '/empenhos', icon: FileBadge2 },
   { title: 'Pedidos', url: '/pedidos', icon: Package },
   { title: 'Separação', url: '/separacao', icon: Box },
-  { title: 'Avaliações', url: '/avaliacoes', icon: Star },
   { title: 'Expedição', url: '/expedicao', icon: Truck },
   { title: 'Estoque', url: '/estoque', icon: Archive },
   { title: 'Tracker Público', url: '/tracker/demo-uuid', icon: MapPin },

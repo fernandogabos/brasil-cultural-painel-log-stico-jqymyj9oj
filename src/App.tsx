@@ -30,6 +30,9 @@ import RomaneioDetailsPage from './pages/expedicao/RomaneioDetailsPage'
 import RouteTrackingPage from './pages/expedicao/RouteTrackingPage'
 import DivergenciasPage from './pages/divergencias/DivergenciasPage'
 import DivergenciaDetailsPage from './pages/divergencias/DivergenciaDetailsPage'
+import SettingsPage from './pages/settings/SettingsPage'
+import UsersPage from './pages/users/UsersPage'
+import DemoFlowPage from './pages/demo/DemoFlowPage'
 
 const App = () => (
   <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
@@ -60,6 +63,9 @@ const App = () => (
           <Route path="/expedicao/:id/route" element={<RouteTrackingPage />} />
           <Route path="/divergencias" element={<DivergenciasPage />} />
           <Route path="/divergencias/:id" element={<DivergenciaDetailsPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/demo" element={<DemoFlowPage />} />
           {/* Outros módulos seriam adicionados aqui */}
         </Route>
 

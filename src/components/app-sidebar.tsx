@@ -24,10 +24,14 @@ import {
   Star,
   Headphones,
   Megaphone,
+  Settings,
+  Users,
+  PlayCircle,
 } from 'lucide-react'
 
 const navItems = [
   { title: 'Dashboard', url: '/', icon: LayoutDashboard },
+  { title: 'Demo Flow', url: '/demo', icon: PlayCircle },
   { title: 'Mural de Avisos', url: '/mural', icon: Megaphone },
   { title: 'Contratos', url: '/contratos', icon: FileText },
   { title: 'Empenhos', url: '/empenhos', icon: FileBadge2 },
@@ -39,6 +43,8 @@ const navItems = [
   { title: 'Tracker Público', url: '/tracker/demo-uuid', icon: MapPin },
   { title: 'Divergências', url: '/divergencias', icon: AlertTriangle },
   { title: 'Atendimento', url: '/atendimento/admin', icon: Headphones },
+  { title: 'Usuários', url: '/users', icon: Users },
+  { title: 'Configurações', url: '/settings', icon: Settings },
 ]
 
 export function AppSidebar() {

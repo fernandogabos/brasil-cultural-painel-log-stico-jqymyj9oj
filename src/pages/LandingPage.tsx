@@ -6,10 +6,10 @@ import bcLogoBranco from '@/assets/bc-logo-branco-b40b3.png'
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center p-4 md:p-8 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-[55%] md:h-[50%] bg-brand-primary rounded-b-[40px] md:rounded-b-[100px] shadow-lg"></div>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-start pt-16 md:pt-28 lg:pt-36 px-4 md:px-8 pb-16 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[70%] sm:h-[65%] md:h-[60%] lg:h-[55%] bg-brand-primary rounded-b-[40px] md:rounded-b-[100px] shadow-lg"></div>
 
-      <div className="z-10 w-full max-w-5xl grid lg:grid-cols-2 gap-12 items-center mt-8">
+      <div className="z-10 w-full max-w-5xl grid lg:grid-cols-2 gap-10 lg:gap-12 items-start mt-4 lg:mt-8">
         <div className="text-white space-y-6 text-center lg:text-left animate-fade-in-up">
           <img
             src={bcLogoBranco}

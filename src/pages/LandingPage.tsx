@@ -17,10 +17,12 @@ export default function LandingPage() {
             className="h-16 sm:h-20 object-contain mx-auto lg:mx-0 drop-shadow-lg"
           />
 
-          <p className="text-xl md:text-2xl text-white font-bold max-w-lg mx-auto lg:mx-0 leading-relaxed drop-shadow-md">
-            Plataforma inteligente de gestão logística que acompanha o ciclo completo do seu pedido,
-            desde o contrato até a entrega.
-          </p>
+          <div className="bg-black/20 backdrop-blur-md px-6 py-5 rounded-2xl border border-white/10 shadow-lg max-w-lg mx-auto lg:mx-0">
+            <p className="text-xl md:text-2xl text-white font-semibold leading-relaxed drop-shadow-sm">
+              Plataforma inteligente de gestão logística que acompanha o ciclo completo do seu
+              pedido, desde o contrato até a entrega.
+            </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-6">
             <Button

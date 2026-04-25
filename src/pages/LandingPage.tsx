@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { UserCheck, ArrowRight, Building2 } from 'lucide-react'
 import bcLogoBranco from '@/assets/bc-logo-branco-b40b3.png'
-import bcIcon from '@/assets/8e6af6dc-57b9-4132-b991-9f491121534e-91150.png'
 
 export default function LandingPage() {
   return (
@@ -12,16 +11,6 @@ export default function LandingPage() {
 
       <div className="z-10 w-full max-w-5xl grid lg:grid-cols-2 gap-12 items-center mt-8">
         <div className="text-white space-y-6 text-center lg:text-left animate-fade-in-up">
-          <div className="flex justify-center lg:justify-start">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/30 bg-white/10 backdrop-blur-sm">
-              <img
-                src={bcIcon}
-                alt="Brasil Cultural Icon"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-          </div>
-
           <img
             src={bcLogoBranco}
             alt="Brasil Cultural"

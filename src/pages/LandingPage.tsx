@@ -84,7 +84,7 @@ export default function LandingPage() {
 
               <div className="group p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 hover:border-brand-primary/30 transition-colors">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-8 h-8 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange">
+                  <div className="w-8 h-8 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange shadow-[0px_0px_6px_0px_#808080]">
                     <UserCheck className="w-4 h-4" />
                   </div>
                   <h3 className="font-bold text-slate-800 dark:text-slate-100">Gestor (Cliente)</h3>
